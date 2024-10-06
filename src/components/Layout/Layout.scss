@@ -1,0 +1,28 @@
+@import '../../index';
+
+/********************************************************************************************/
+.main__content{
+    @include pantalla-completa;
+    display: flex;
+    overflow: hidden;
+}
+
+/********************************************************************************************/
+.sidebar {
+    background: linear-gradient(270deg, $background-color-fondo-2, $background-color-fondo-3, $background-color-fondo-2);
+    max-width: calc(100% - 80%);
+    min-width: calc(100% - 80%);
+    max-height: calc(100vh - 0vh);
+    min-height: calc(100vh - 0vh);
+    z-index: 1;
+    box-shadow: 5px 5px 20px 0px $background-color-fondo-2;
+    padding: 10px;
+}
+
+/********************************************************************************************/
+.content {
+    max-width: calc(80% - 0%);
+    min-width: calc(80% - 0%);
+    max-height: calc(100vh - 0vh);
+    min-height: calc(100vh - 0vh);
+  }

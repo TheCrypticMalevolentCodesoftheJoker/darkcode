@@ -1,0 +1,121 @@
+@import "../../index";
+
+.container__formulario__registrar {
+  width: 60%;
+  height: 100%;
+  background-color: adjust-opacity($background-color-fondo-3, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 15px;
+  border: 3px solid adjust-opacity($background-color-fondo-3, 0.8);
+  gap: 40px;
+  box-shadow: -3px 6px 14px 0px adjust-opacity($background-color-fondo-3, 0.8);
+
+  .container__encabezado {
+    font-family: $font-title;
+    color: $background-color-aqua;
+    font-weight: normal;
+    font-size: 25px;
+    letter-spacing: 2px;
+  }
+  .container_campos_formulario {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    .material-symbols-outlined {
+      color: adjust-opacity($background-color-aqua, 1);
+      font-size: 35px;
+      margin-right: 5px;
+    }
+    .campo_formulario {
+      flex: 1;
+      position: relative;
+      background-color: adjust-opacity($background-color-white, 0.05);
+      border-radius: 0px 10px 10px 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      .input {
+        color: $background-color-white;
+        background-color: transparent;
+        font-family: $font-main;
+        width: 100%;
+        height: 100%;
+        border: none;
+        letter-spacing: 2px;
+        font-size: 15px;
+        transition: color 0.3s;
+
+        &::placeholder {
+          color: adjust-opacity($background-color-white, 0.5);
+          font-size: 15px;
+        }
+
+        &:focus {
+          outline: none;
+          color: $background-color-white;
+        }
+      }
+
+      .input-border {
+        position: absolute;
+        background-color: $background-color-aqua;
+        box-shadow: -3px 10px 5px adjust-opacity($background-color-aqua, 0.9);
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        transition: width 0.3s;
+      }
+      input:focus ~ .input-border,
+      select:focus ~ .input-border {
+        width: 100%;
+      }
+      #select-custom {
+        width: 100%;
+
+        option {
+          padding: 10px;
+          color: $background-color-white;
+          font-size: 15px;
+
+          &:checked {
+            background-color: $background-color-aqua;
+            color: $background-color-white;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+  .btn_Procesar {
+    background-color: adjust-opacity($background-color-true, 0.05);
+    border: 2px solid $background-color-true;
+    color: $background-color-white;
+    letter-spacing: 1px;
+    font-family: $font-main;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+
+    .access__icon {
+      @include icono_calabera;
+    }
+    &:hover {
+      border: 2px solid $background-color-error;
+      background-color: adjust-opacity($background-color-error, 0.05);
+      .access__icon {
+        color: $background-color-white;
+        filter: drop-shadow(0px 0px 3px $background-color-error)
+          drop-shadow(0px 0px 6px $background-color-error);
+      }
+    }
+  }
+}

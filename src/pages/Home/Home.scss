@@ -1,0 +1,70 @@
+@import '../../index';
+
+.container__home {
+    background-color: $background-color-fondo-1;
+    position: relative;
+    width: calc(100% - 0px);
+    height: calc(100vh - 0px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .matrix {
+        position: relative;
+        width: 96%;
+        height: 100%;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .column {
+        position: absolute;
+        width: 2vw;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        animation: fall linear;
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100%);
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+    }
+      
+    .char {
+        font-size: 1.2rem;
+        color: $background-color-true;
+        opacity: 0.8;
+        transition: opacity 0.3s, color 0.3s;
+    }
+    
+    .char.bright {
+        color: $background-color-white;
+        opacity: 1;
+    }
+    .char.flicker {
+        animation: flicker 0.5s infinite;
+
+        @keyframes flicker {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+    }
+}
+

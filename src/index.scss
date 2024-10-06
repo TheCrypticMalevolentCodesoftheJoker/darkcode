@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Nosifer&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nosifer&display=swap");
+
+/************************************* TIPOS DE LETRAS *************************************/
+$font-main: "Montserrat", sans-serif;
+$font-title: "Nosifer", cursive;
+
+/************************************* DIMENCION DE PANTALLA *************************************/
+@mixin pantalla-completa {
+  max-width: calc(100% - 0px);
+  min-width: calc(100% - 0px);
+  max-height: calc(100vh - 0px);
+  min-height: calc(100vh - 0px);
+}
+@mixin icono_calabera {
+  color: $background-color-white;
+  margin-right: 10px;
+  font-size: 25px;
+  filter: drop-shadow(0px 0px 3px $background-color-true)
+    drop-shadow(0px 0px 6px $background-color-true);
+}
+@mixin pantalla-template {
+  background-color: $background-color-fondo-1;
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+/************************************* FUNCIONES *************************************/
+
+// Función para crear un color transparente
+@function adjust-opacity($color, $opacity) {
+  @return rgba($color, $opacity);
+} // Ejemplo de uso: background-color: adjust-opacity($primary-color, 0.5);
+
+// Función para obtener el color complementario
+@function complementary-color($color) {
+  @if (type-of($color) != "color") {
+    @error "El argumento debe ser un color.";
+  }
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+
+  $comp-red: 255 - $red;
+  $comp-green: 255 - $green;
+  $comp-blue: 255 - $blue;
+
+  @return rgb($comp-red, $comp-green, $comp-blue);
+} // Ejemplo de uso: background-color: complementary-color($primary-color);
+
+/************************************* COLORES *************************************/
+$background-color-fondo-1: rgb(11, 17, 33);
+$background-color-fondo-2: rgb(30, 41, 59);
+$background-color-fondo-3: rgb(59, 73, 99);
+
+$background-color-error: rgb(255, 1, 1);
+$background-color-true: rgb(43, 255, 0);
+$background-color-black: rgb(0, 0, 0);
+$background-color-white: rgb(255, 255, 255);
+$background-color-aqua: rgb(21, 207, 229);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-main;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background: adjust-opacity($background-color-black, 0.15);
+}
+
+::-webkit-scrollbar-thumb {
+  background: adjust-opacity($background-color-black, 0.5);
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: adjust-opacity($background-color-black, 0.5);
+}

@@ -1,0 +1,80 @@
+@import "../../index";
+
+/********************************************************************************************/
+.container__navbar {
+  height: calc(100vh - 20px);
+  width: calc(100% - 0px);
+  display: flex;
+  overflow: auto;
+  flex-direction: column;
+  gap: 20px;
+
+  .branding {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    img {
+      width: 150px;
+      height: auto;
+      filter: opacity(0.9) drop-shadow(0px 0px 3px $background-color-black);
+    }
+
+    h1 {
+      font-family: $font-title;
+      color: $background-color-true;
+      font-size: 20px;
+      letter-spacing: 5px;
+      font-weight: normal;
+      text-shadow: -3px 12px 12px $background-color-black;
+    }
+  }
+  nav {
+    width: 100%;
+    border-top: 2px solid $background-color-white;
+
+    ul {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 20px 0px 20px 0px;
+      list-style: none;
+
+      li {
+        width: 100%;
+        border: 2px solid $background-color-true;
+        background-color: adjust-opacity($background-color-true, 0.05);
+        border-radius: 15px;
+        cursor: pointer;
+
+        .access__link {
+          width: 100%;
+          color: $background-color-white;
+          display: flex;
+          font-family: $font-main;
+          align-items: center;
+          text-decoration: none;
+          font-size: 15px;
+          letter-spacing: 1px;
+          border-radius: 15px;
+          padding: 5px 10px;
+
+          .access__icon {
+            @include icono_calabera;
+          }
+        }
+        &:hover {
+          border: 2px solid $background-color-error;
+          background-color: adjust-opacity($background-color-error, 0.05);
+          .access__icon {
+            color: $background-color-white;
+            filter: drop-shadow(0px 0px 3px $background-color-error) drop-shadow(0px 0px 6px $background-color-error);
+          }
+        }
+      }
+    }
+  }
+}
